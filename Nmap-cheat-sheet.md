@@ -61,7 +61,6 @@ nmap 192.168.1.0/24	Scan using CIDR notation\
 -min-rate <number>	100	Send packets no slower than <number> per second\
 -max-rate <number>	100	Send packets no faster than <number> per second
 # NSE Scripts
-SWITCH	EXAMPLE	DESCRIPTION\
 -sC	nmap 192.168.1.1 -sC	Scan with default NSE scripts. Considered useful for discovery and safe\
 -script default	nmap 192.168.1.1 -script default	Scan with default NSE scripts. Considered useful for discovery and safe\
 -script	nmap 192.168.1.1 -script=banner	Scan with a single script. Example banner\
@@ -70,7 +69,6 @@ SWITCH	EXAMPLE	DESCRIPTION\
 -script	nmap 192.168.1.1 -script "not intrusive"	Scan default, but remove intrusive scripts\
 -script-args	nmap -script snmp-sysdescr -script-args snmpcommunity=admin 192.168.1.1	NSE script with arguments
 # Useful NSE Script Examples
-COMMAND	DESCRIPTION\
 nmap -Pn -script=http-sitemap-generator scanme.nmap.org	http site map generator\
 nmap -n -Pn -p 80 -open -sV -vvv -script banner,http-title -iR 1000	Fast search for random web servers\
 nmap -Pn -script=dns-brute domain.com	Brute forces DNS hostnames guessing subdomains\
@@ -79,7 +77,6 @@ nmap -script whois* domain.com	Whois query\
 nmap -p80 -script http-unsafe-output-escaping scanme.nmap.org	Detect cross site scripting vulnerabilities\
 nmap -p80 -script http-sql-injection scanme.nmap.org	Check for SQL injections
 # Firewall / IDS Evasion and Spoofing
-SWITCH	EXAMPLE	DESCRIPTION\
 -f	nmap 192.168.1.1 -f	Requested scan (including ping scans) use tiny fragmented IP packets. Harder for packet filters\
 -mtu	nmap 192.168.1.1 -mtu 32	Set your own offset size\
 -D	nmap -D 192.168.1.101,192.168.1.102,192.168.1.103,192.168.1.23 192.168.1.1	Send scans from spoofed IPs\
@@ -89,7 +86,6 @@ SWITCH	EXAMPLE	DESCRIPTION\
 -proxies	nmap -proxies http://192.168.1.1:8080, http://192.168.1.2:8080 192.168.1.1	Relay connections through HTTP/SOCKS4 proxies\
 -data-length	nmap -data-length 200 192.168.1.1	Appends random data to sent packets
 # Output
-SWITCH	EXAMPLE	DESCRIPTION\
 -oN	nmap 192.168.1.1 -oN normal.file	Normal output to the file normal.file\
 -oX	nmap 192.168.1.1 -oX xml.file	XML output to the file xml.file\
 -oG	nmap 192.168.1.1 -oG grep.file	Grepable output to the file grep.file\
@@ -104,7 +100,6 @@ SWITCH	EXAMPLE	DESCRIPTION\
 -iflist	nmap -iflist	Shows the host interfaces and routes\
 -resume	nmap -resume results.file	Resume a scan
 # Helpful Nmap Output examples
-COMMAND	DESCRIPTION\
 nmap -p80 -sV -oG - -open 192.168.1.1/24 | grep open	Scan for web servers and grep to show which IPs are running web servers\
 nmap -iR 10 -n -oX out.xml | grep "Nmap" | cut -d " " -f5 > live-hosts.txt	Generate a list of the IPs of live hosts\
 nmap -iR 10 -n -oX out2.xml | grep "Nmap" | cut -d " " -f5 >> live-hosts.txt	Append IP to the list of live hosts\
@@ -112,11 +107,9 @@ ndiff scanl.xml scan2.xml	Compare output from nmap using the ndif\
 xsltproc nmap.xml -o nmap.html	Convert nmap xml files to html files\
 grep " open " results.nmap | sed -r ‘s/ +/ /g’ | sort | uniq -c | sort -rn | less	Reverse sorted list of how often ports turn up
 # Miscellaneous Nmap Flags
-SWITCH	EXAMPLE	DESCRIPTION\
 -6	nmap -6 2607:f0d0:1002:51::4	Enable IPv6 scanning\
 -h	nmap -h	nmap help screen
 # Other Useful Nmap Commands
-COMMAND	DESCRIPTION\
 nmap -iR 10 -PS22-25,80,113,1050,35000 -v -sn	Discovery only on ports x, no port scan\
 nmap 192.168.1.1-1/24 -PR -sn -vv	Arp discovery only on local network, no port scan\
 nmap -iR 10 -sn -traceroute	Traceroute to random targets, no port scan\
