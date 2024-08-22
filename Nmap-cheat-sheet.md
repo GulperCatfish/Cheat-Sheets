@@ -1,5 +1,4 @@
 # Target Specification
-SWITCH	EXAMPLE	DESCRIPTION\
 nmap 192.168.1.1	Scan a single IP\
 nmap 192.168.1.1 192.168.2.1	Scan specific IPs\
 nmap 192.168.1.1-254	Scan a range\
@@ -9,7 +8,6 @@ nmap 192.168.1.0/24	Scan using CIDR notation\
 -iR	nmap -iR 100	Scan 100 random hosts\
 -exclude	nmap -exclude 192.168.1.1	Exclude listed hosts
 # Nmap Scan Techniques
-SWITCH	EXAMPLE	DESCRIPTION\
 -sS	nmap 192.168.1.1 -sS	TCP SYN port scan (Default)\
 -sT	nmap 192.168.1.1 -sT	TCP connect port scan (Default without root privilege)\
 -sU	nmap 192.168.1.1 -sU	UDP port scan\
@@ -17,7 +15,6 @@ SWITCH	EXAMPLE	DESCRIPTION\
 -sW	nmap 192.168.1.1 -sW	TCP Window port scan\
 -sM	nmap 192.168.1.1 -sM	TCP Maimon port scan
 # Host Discovery
-SWITCH	EXAMPLE	DESCRIPTION\
 -sL	nmap 192.168.1.1-3 -sL	No Scan. List targets only\
 -sn	nmap 192.168.1.1/24 -sn	Disable port scanning. Host discovery only.\
 -Pn	nmap 192.168.1.1-5 -Pn	Disable host discovery. Port scan only.\
@@ -27,7 +24,6 @@ SWITCH	EXAMPLE	DESCRIPTION\
 -PR	nmap 192.168.1.1-1/24 -PR	ARP discovery on local network\
 -n	nmap 192.168.1.1 -n	Never do DNS resolution
 # Port Specification
-SWITCH	EXAMPLE	DESCRIPTION\
 -p	nmap 192.168.1.1 -p 21	Port scan for port x\
 -p	nmap 192.168.1.1 -p 21-100	Port range\
 -p	nmap 192.168.1.1 -p U:53,T:21-25,80	Port scan multiple TCP and UDP ports\
@@ -38,21 +34,18 @@ SWITCH	EXAMPLE	DESCRIPTION\
 -p-65535	nmap 192.168.1.1 -p-65535	Leaving off initial port in range makes the scan start at port 1\
 -p0-	nmap 192.168.1.1 -p0-	Leaving off end port in range makes the scan go through to port 65535
 # Service and Version Detection
-SWITCH	EXAMPLE	DESCRIPTION
 -sV	nmap 192.168.1.1 -sV	Attempts to determine the version of the service running on port\
 -sV -version-intensity	nmap 192.168.1.1 -sV -version-intensity 8	Intensity level 0 to 9. Higher number increases possibility of correctness\
 -sV -version-light	nmap 192.168.1.1 -sV -version-light	Enable light mode. Lower possibility of correctness. Faster\
 -sV -version-all	nmap 192.168.1.1 -sV -version-all	Enable intensity level 9. Higher possibility of correctness. Slower\
 -A	nmap 192.168.1.1 -A	Enables OS detection, version detection, script scanning, and traceroute
 # OS Detection
-SWITCH	EXAMPLE	DESCRIPTION\
 -O	nmap 192.168.1.1 -O	Remote OS detection using TCP/IP stack fingerprinting\
 -O -osscan-limit	nmap 192.168.1.1 -O -osscan-limit	If at least one open and one closed TCP port are not found it will not try OS detection against host\
 -O -osscan-guess	nmap 192.168.1.1 -O -osscan-guess	Makes Nmap guess more aggressively\
 -O -max-os-tries	nmap 192.168.1.1 -O -max-os-tries 1	Set the maximum number x of OS detection tries against a target\
 -A	nmap 192.168.1.1 -A	Enables OS detection, version detection, script scanning, and traceroute
 # Timing and Performance
-SWITCH	EXAMPLE	DESCRIPTION\
 -T0	nmap 192.168.1.1 -T0	Paranoid (0) Intrusion Detection System evasion\
 -T1	nmap 192.168.1.1 -T1	Sneaky (1) Intrusion Detection System evasion\
 -T2	nmap 192.168.1.1 -T2	Polite (2) slows down the scan to use less bandwidth and use less target machine resources\
@@ -60,7 +53,6 @@ SWITCH	EXAMPLE	DESCRIPTION\
 -T4	nmap 192.168.1.1 -T4	Aggressive (4) speeds scans; assumes you are on a reasonably fast and reliable network\
 -T5	nmap 192.168.1.1 -T5	Insane (5) speeds scan; assumes you are on an extraordinarily fast network
 # Timing and Performance Switches
-SWITCH	EXAMPLE INPUT	DESCRIPTION\
 -host-timeout <time>	1s; 4m; 2h	Give up on target after this long\
 -min-rtt-timeout/max-rtt-timeout/initial-rtt-timeout <time>	1s; 4m; 2h	Specifies probe round trip time\
 -min-hostgroup/max-hostgroup <size<size>	50; 1024	Parallel host scan group sizes\
