@@ -7,7 +7,7 @@ nmap scanme.nmap.org	Scan a domain\
 nmap 192.168.1.0/24	Scan using CIDR notation\
 -iL	nmap -iL targets.txt	Scan targets from a file\
 -iR	nmap -iR 100	Scan 100 random hosts\
--exclude	nmap -exclude 192.168.1.1	Exclude listed hosts\
+-exclude	nmap -exclude 192.168.1.1	Exclude listed hosts
 # Nmap Scan Techniques
 SWITCH	EXAMPLE	DESCRIPTION\
 -sS	nmap 192.168.1.1 -sS	TCP SYN port scan (Default)\
@@ -15,7 +15,7 @@ SWITCH	EXAMPLE	DESCRIPTION\
 -sU	nmap 192.168.1.1 -sU	UDP port scan\
 -sA	nmap 192.168.1.1 -sA	TCP ACK port scan\
 -sW	nmap 192.168.1.1 -sW	TCP Window port scan\
--sM	nmap 192.168.1.1 -sM	TCP Maimon port scan\
+-sM	nmap 192.168.1.1 -sM	TCP Maimon port scan
 # Host Discovery
 SWITCH	EXAMPLE	DESCRIPTION\
 -sL	nmap 192.168.1.1-3 -sL	No Scan. List targets only\
@@ -25,7 +25,7 @@ SWITCH	EXAMPLE	DESCRIPTION\
 -PA	nmap 192.168.1.1-5 -PA22-25,80	TCP ACK discovery on port x. Port 80 by default\
 -PU	nmap 192.168.1.1-5 -PU53	UDP discovery on port x. Port 40125 by default\
 -PR	nmap 192.168.1.1-1/24 -PR	ARP discovery on local network\
--n	nmap 192.168.1.1 -n	Never do DNS resolution\
+-n	nmap 192.168.1.1 -n	Never do DNS resolution
 # Port Specification
 SWITCH	EXAMPLE	DESCRIPTION\
 -p	nmap 192.168.1.1 -p 21	Port scan for port x\
@@ -36,21 +36,21 @@ SWITCH	EXAMPLE	DESCRIPTION\
 -F	nmap 192.168.1.1 -F	Fast port scan (100 ports)\
 -top-ports	nmap 192.168.1.1 -top-ports 2000	Port scan the top x ports\
 -p-65535	nmap 192.168.1.1 -p-65535	Leaving off initial port in range makes the scan start at port 1\
--p0-	nmap 192.168.1.1 -p0-	Leaving off end port in range makes the scan go through to port 65535\
+-p0-	nmap 192.168.1.1 -p0-	Leaving off end port in range makes the scan go through to port 65535
 # Service and Version Detection
 SWITCH	EXAMPLE	DESCRIPTION
 -sV	nmap 192.168.1.1 -sV	Attempts to determine the version of the service running on port\
 -sV -version-intensity	nmap 192.168.1.1 -sV -version-intensity 8	Intensity level 0 to 9. Higher number increases possibility of correctness\
 -sV -version-light	nmap 192.168.1.1 -sV -version-light	Enable light mode. Lower possibility of correctness. Faster\
 -sV -version-all	nmap 192.168.1.1 -sV -version-all	Enable intensity level 9. Higher possibility of correctness. Slower\
--A	nmap 192.168.1.1 -A	Enables OS detection, version detection, script scanning, and traceroute\
+-A	nmap 192.168.1.1 -A	Enables OS detection, version detection, script scanning, and traceroute
 # OS Detection
 SWITCH	EXAMPLE	DESCRIPTION\
 -O	nmap 192.168.1.1 -O	Remote OS detection using TCP/IP stack fingerprinting\
 -O -osscan-limit	nmap 192.168.1.1 -O -osscan-limit	If at least one open and one closed TCP port are not found it will not try OS detection against host\
 -O -osscan-guess	nmap 192.168.1.1 -O -osscan-guess	Makes Nmap guess more aggressively\
 -O -max-os-tries	nmap 192.168.1.1 -O -max-os-tries 1	Set the maximum number x of OS detection tries against a target\
--A	nmap 192.168.1.1 -A	Enables OS detection, version detection, script scanning, and traceroute\
+-A	nmap 192.168.1.1 -A	Enables OS detection, version detection, script scanning, and traceroute
 # Timing and Performance
 SWITCH	EXAMPLE	DESCRIPTION\
 -T0	nmap 192.168.1.1 -T0	Paranoid (0) Intrusion Detection System evasion\
@@ -58,7 +58,7 @@ SWITCH	EXAMPLE	DESCRIPTION\
 -T2	nmap 192.168.1.1 -T2	Polite (2) slows down the scan to use less bandwidth and use less target machine resources\
 -T3	nmap 192.168.1.1 -T3	Normal (3) which is default speed\
 -T4	nmap 192.168.1.1 -T4	Aggressive (4) speeds scans; assumes you are on a reasonably fast and reliable network\
--T5	nmap 192.168.1.1 -T5	Insane (5) speeds scan; assumes you are on an extraordinarily fast network\
+-T5	nmap 192.168.1.1 -T5	Insane (5) speeds scan; assumes you are on an extraordinarily fast network
 # Timing and Performance Switches
 SWITCH	EXAMPLE INPUT	DESCRIPTION\
 -host-timeout <time>	1s; 4m; 2h	Give up on target after this long\
@@ -67,7 +67,7 @@ SWITCH	EXAMPLE INPUT	DESCRIPTION\
 -min-parallelism/max-parallelism <numprobes>	10; 1	Probe parallelization\
 -max-retries <tries>	3	Specify the maximum number of port scan probe retransmissions\
 -min-rate <number>	100	Send packets no slower than <number> per second\
--max-rate <number>	100	Send packets no faster than <number> per second\
+-max-rate <number>	100	Send packets no faster than <number> per second
 # NSE Scripts
 SWITCH	EXAMPLE	DESCRIPTION\
 -sC	nmap 192.168.1.1 -sC	Scan with default NSE scripts. Considered useful for discovery and safe\
@@ -76,7 +76,7 @@ SWITCH	EXAMPLE	DESCRIPTION\
 -script	nmap 192.168.1.1 -script=http*	Scan with a wildcard. Example http\
 -script	nmap 192.168.1.1 -script=http,banner	Scan with two scripts. Example http and banner\
 -script	nmap 192.168.1.1 -script "not intrusive"	Scan default, but remove intrusive scripts\
--script-args	nmap -script snmp-sysdescr -script-args snmpcommunity=admin 192.168.1.1	NSE script with arguments\
+-script-args	nmap -script snmp-sysdescr -script-args snmpcommunity=admin 192.168.1.1	NSE script with arguments
 # Useful NSE Script Examples
 COMMAND	DESCRIPTION\
 nmap -Pn -script=http-sitemap-generator scanme.nmap.org	http site map generator\
@@ -85,7 +85,7 @@ nmap -Pn -script=dns-brute domain.com	Brute forces DNS hostnames guessing subdom
 nmap -n -Pn -vv -O -sV -script smb-enum*,smb-ls,smb-mbenum,smb-os-discovery,smb-s*,smb-vuln*,smbv2* -vv 192.168.1.1	Safe SMB scripts to run\
 nmap -script whois* domain.com	Whois query\
 nmap -p80 -script http-unsafe-output-escaping scanme.nmap.org	Detect cross site scripting vulnerabilities\
-nmap -p80 -script http-sql-injection scanme.nmap.org	Check for SQL injections\
+nmap -p80 -script http-sql-injection scanme.nmap.org	Check for SQL injections
 # Firewall / IDS Evasion and Spoofing
 SWITCH	EXAMPLE	DESCRIPTION\
 -f	nmap 192.168.1.1 -f	Requested scan (including ping scans) use tiny fragmented IP packets. Harder for packet filters\
@@ -95,7 +95,7 @@ SWITCH	EXAMPLE	DESCRIPTION\
 -S	nmap -S www.microsoft.com www.facebook.com	Scan Facebook from Microsoft (-e eth0 -Pn may be required)\
 -g	nmap -g 53 192.168.1.1	Use given source port number\
 -proxies	nmap -proxies http://192.168.1.1:8080, http://192.168.1.2:8080 192.168.1.1	Relay connections through HTTP/SOCKS4 proxies\
--data-length	nmap -data-length 200 192.168.1.1	Appends random data to sent packets\
+-data-length	nmap -data-length 200 192.168.1.1	Appends random data to sent packets
 # Output
 SWITCH	EXAMPLE	DESCRIPTION\
 -oN	nmap 192.168.1.1 -oN normal.file	Normal output to the file normal.file\
@@ -110,7 +110,7 @@ SWITCH	EXAMPLE	DESCRIPTION\
 -open	nmap 192.168.1.1 -open	Only show open (or possibly open) ports\
 -packet-trace	nmap 192.168.1.1 -T4 -packet-trace	Show all packets sent and received\
 -iflist	nmap -iflist	Shows the host interfaces and routes\
--resume	nmap -resume results.file	Resume a scan\
+-resume	nmap -resume results.file	Resume a scan
 # Helpful Nmap Output examples
 COMMAND	DESCRIPTION\
 nmap -p80 -sV -oG - -open 192.168.1.1/24 | grep open	Scan for web servers and grep to show which IPs are running web servers\
@@ -118,15 +118,15 @@ nmap -iR 10 -n -oX out.xml | grep "Nmap" | cut -d " " -f5 > live-hosts.txt	Gener
 nmap -iR 10 -n -oX out2.xml | grep "Nmap" | cut -d " " -f5 >> live-hosts.txt	Append IP to the list of live hosts\
 ndiff scanl.xml scan2.xml	Compare output from nmap using the ndif\
 xsltproc nmap.xml -o nmap.html	Convert nmap xml files to html files\
-grep " open " results.nmap | sed -r ‘s/ +/ /g’ | sort | uniq -c | sort -rn | less	Reverse sorted list of how often ports turn up\
+grep " open " results.nmap | sed -r ‘s/ +/ /g’ | sort | uniq -c | sort -rn | less	Reverse sorted list of how often ports turn up
 # Miscellaneous Nmap Flags
 SWITCH	EXAMPLE	DESCRIPTION\
 -6	nmap -6 2607:f0d0:1002:51::4	Enable IPv6 scanning\
--h	nmap -h	nmap help screen\
+-h	nmap -h	nmap help screen
 # Other Useful Nmap Commands
 COMMAND	DESCRIPTION\
 nmap -iR 10 -PS22-25,80,113,1050,35000 -v -sn	Discovery only on ports x, no port scan\
 nmap 192.168.1.1-1/24 -PR -sn -vv	Arp discovery only on local network, no port scan\
 nmap -iR 10 -sn -traceroute	Traceroute to random targets, no port scan\
 nmap 192.168.1.1-50 -sL -dns-server 192.168.1.1	Query the Internal DNS for hosts, list targets only\
-nmap 192.168.1.1 --packet-trace	Show the details of the packets that are sent and received during a scan and capture the traffic.\
+nmap 192.168.1.1 --packet-trace	Show the details of the packets that are sent and received during a scan and capture the traffic.
