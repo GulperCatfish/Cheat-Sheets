@@ -2,13 +2,20 @@
 
 ## Scan a single IP
 > nmap 192.168.1.1
-nmap 192.168.1.1 192.168.2.1	  Scan specific IPs\
-nmap 192.168.1.1-254	          Scan a range\
-nmap scanme.nmap.org	          Scan a domain\
-nmap 192.168.1.0/24	            Scan using CIDR notation\
-nmap -iL targets.txt	          Scan targets from a file\
-nmap -iR 100	                  Scan 100 random hosts\
-nmap -exclude 192.168.1.1	      Exclude listed hosts
+## Scan specific IPs
+> nmap 192.168.1.1 192.168.2.1
+## Scan a range  
+> nmap 192.168.1.1-254	          
+## Scan a domain
+> nmap scanme.nmap.org	          
+## Scan using CIDR notation
+> nmap 192.168.1.0/24	            
+## Scan targets from a file
+> nmap -iL targets.txt	          
+## Scan 100 random hosts
+> nmap -iR 100	                  
+## Exclude listed hosts
+> nmap -exclude 192.168.1.1	      
 # Nmap Scan Techniques
 
 nmap 192.168.1.1 -sS	  TCP SYN port scan (Default)\
