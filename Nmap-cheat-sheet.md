@@ -15,7 +15,8 @@
 ## Scan 100 random hosts
 > nmap -iR 100	                  
 ## Exclude listed hosts
-> nmap -exclude 192.168.1.1	      
+> nmap -exclude 192.168.1.1
+     
 # Nmap Scan Techniques
 
 nmap 192.168.1.1 -sS	  TCP SYN port scan (Default)\
