@@ -1,0 +1,31 @@
+! (Exclamation Mark) - not sure. JavaScript does not encode this character. It has historically been used to represent AJAX URLs in the fragment identifier. eg. #! (hash-bang) - but this was Google, not a "standard".
+
+# (Hash / Pound) - Delimits the fragment identifier. (Last part of the URL, client-side only, not passed to the server.)
+
+$ (Dollar) - Not sure. No special meaning in the URL-path or query string that I am aware of. However, JavaScript's encodeURIComponent() will encode this character (whereas encodeURI() does not) which implies it might have special meaning in the query string.
+
+& (Ampersand) - Used to delimit query string parameters.
+
+' (Apostrophe / Single quote) - Not sure. No special meaning in the URL-path or query string. JavaScript does not encode this character.
+
+( and ) (Parentheses / Brackets) - Not sure. No special meaning in the URL-path or query string. JavaScript does not encode these characters.
+
+* (Asterisk) - Not sure. No special meaning in the URL-path or query string. JavaScript does not encode this character.
+
++ (Plus) - Can be used to encode a space (alternative to %20) in the query string only. A literal + when used in the URL-path.
+
+, (Comma) - An alternative to ;.
+
+/ (Slash) - Delimits path segments in the URL-path.
+
+: (Colon) - Delimits the scheme from the host and host from the port.
+
+; (Semicolon) - Delimits URL parameters in the query string.
+
+= (Equals) - Delimits name/value pairs in the query string.
+
+? (Question Mark) - Delimits the start of the query string.
+
+@ (At) - Delimits userinfo in the authority part of the URL.
+
+[ and ] (Square Brackets) - Note sure. These are used by PHP to allow array-like parameter names in the query string - although I don't think this is the "official" use.
