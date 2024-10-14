@@ -16,7 +16,7 @@ The first step when you have gained initial access to any machine would be to en
   - Get-NetAdapter -Name * -IncludeHidden
   - Get-NetAdapter -Name * -Physical
 - file permissions:
-  - Get-ChildItem -Path C:\ -Include *\.bak*\ -File -Recurse -ErrorAction SilentlyContinue
+  - Get-ChildItem -Path C:\ -Include *.bak* -File -Recurse -ErrorAction SilentlyContinue
   - Get-ChildItem C:\* -Recurse | Select-String -pattern API_KEY
   - Get-Acl C:\ | Format-List
   - Get-ChildItem C:\ -Recurse | Get-Acl | Select-Object PSChildName, AccessToString | Format-List
