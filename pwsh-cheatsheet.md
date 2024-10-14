@@ -11,7 +11,7 @@ The first step when you have gained initial access to any machine would be to en
 - basic networking information:
   - Get-NetIPAddress
   - Get-NetTCPConnection | Where-Object -Property State -Match Listen | measure
-  - get-nettcpconnection | where {$_.state -eq "listen" -and $_.localport -eq 445}
+  - get-nettcpconnection | where {$`_`.state -eq "listen" -and $_.localport -eq 445}
   - Get-NetRoute
   - Get-NetAdapter -Name * -IncludeHidden
   - Get-NetAdapter -Name * -Physical
