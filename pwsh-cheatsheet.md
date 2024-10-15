@@ -42,6 +42,7 @@ get-scheduledtask | where {$_.taskname -eq "new-sched-task"}
 ## insecure files:
 ```
 Get-ChildItem -Recurse C:\ | Get-Acl | Where-Object {($_.AccessToString -match "Everyone") -and ($_.AccessToString -match "FullControl")}
+Get-ChildItem -Hidden -Path
 ```
  
 # Reverse Shell
