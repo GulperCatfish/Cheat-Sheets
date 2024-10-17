@@ -47,6 +47,10 @@ Get-Process -Id (Get-NetUDPEndpoint -LocalPort YourPortNumberHere).OwningProcess
 Get-ChildItem -Recurse C:\ | Get-Acl | Where-Object {($_.AccessToString -match "Everyone") -and ($_.AccessToString -match "FullControl")}
 Get-ChildItem -Hidden -Path
 ```
+## History
+```
+(Get-PSReadlineOption).HistorySavePath
+```
  
 # Reverse Shell
 
