@@ -18,6 +18,7 @@ get-nettcpconnection | where {$_.state -eq "listen" -and $_.localport -eq 445}
 Get-NetRoute
 Get-NetAdapter -Name * -IncludeHidden
 Get-NetAdapter -Name * -Physical
+netstat -an | findstr LISTENING | sort
 ```
 ## file permissions:
 ```
@@ -38,6 +39,8 @@ Get-Process
 Get-ScheduledTask -TaskName * | Format-List
 Get-ScheduledTask | Where-Object {$_.State -eq "Running"}
 get-scheduledtask | where {$_.taskname -eq "new-sched-task"}
+Get-Process -Id (Get-NetTCPConnection -LocalPort YourPortNumberHere).OwningProcess
+Get-Process -Id (Get-NetUDPEndpoint -LocalPort YourPortNumberHere).OwningProcess
 ```
 ## insecure files:
 ```
